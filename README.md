@@ -1,5 +1,3 @@
-使いたいディレクトリにDockerfileとdocker-compose.ymlを置き、
-```bash
-docker-compose up
-```
-で起動。
+渡辺澄夫「ベイズ統計の理論と方法」5.2節より。  
+![20191215152733](https://user-images.githubusercontent.com/49140016/70939884-89f0ee80-208c-11ea-981f-f5c185267446.gif)
+
