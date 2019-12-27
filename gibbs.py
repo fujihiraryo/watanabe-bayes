@@ -102,7 +102,7 @@ for t in range(T):
 
 #gifを作成して保存
 now=dt.now().strftime("%Y%m%d%H%M%S")
-name="gibbs"+now+".gif"
+name="gif/gibbs"+now+".gif"
 images[0].save(name, save_all=True, append_images=images[1:], duration=10, loop=0)
 buf.close()
 print("complete")
