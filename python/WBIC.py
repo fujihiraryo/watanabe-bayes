@@ -13,7 +13,7 @@ def p(x, a, b):
 
 
 def prd(x, A, B, K):
-    return sum([p(x, A[k], B[k]) for k in range(K)]) / K
+    return np.mean([p(x, A[k], B[k]) for k in range(K)])
 
 
 def post_sample(X, n, K, burn, beta):
@@ -62,21 +62,21 @@ def main(n=100, a=0.5, b=2, s=1, K=1000, burn=200):
     for j in range(J):
         A, B = post_sample(X, n, K, burn, j / J)
         F += -np.log(
-            sum([
+            np.mean([
                 np.exp(
                     sum([np.log(p(X[i], A[k], B[k])) for i in range(n)]) / J)
                 for k in range(K - burn)
-            ]) / (K - burn))
+            ]))
     F = F / n
     # BIC, WBIC
     A, B = post_sample(X, n, K, burn, 1)
-    T = sum([-np.log(prd(X[i], A, B, K - burn)) for i in range(n)]) / n
+    T = np.mean([-np.log(prd(X[i], A, B, K - burn)) for i in range(n)])
     BIC = T + np.log(n) / n
     A, B = post_sample(X, n, K, burn, 1 / np.log(n))
-    WBIC = sum([
-        sum([-np.log(p(X[i], A[k], B[k])) for i in range(n)]) / n
+    WBIC = np.mean([
+        np.mean([-np.log(p(X[i], A[k], B[k])) for i in range(n)])
         for k in range(K - burn)
-    ]) / (K - burn)
+    ])
     return F, BIC, WBIC
 
 

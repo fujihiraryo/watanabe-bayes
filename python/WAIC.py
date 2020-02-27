@@ -13,7 +13,7 @@ def p(x, a, b):
 
 
 def prd(x, A, B, K):
-    return sum([p(x, A[k], B[k]) for k in range(K)]) / K
+    return np.mean([p(x, A[k], B[k]) for k in range(K)])
 
 
 def main(n=100, a=0.5, b=2, s=1, K=1000, burn=200):
@@ -53,19 +53,19 @@ def main(n=100, a=0.5, b=2, s=1, K=1000, burn=200):
             A.append(a)
             B.append(b)
     K = K - burn
-    # 汎化誤差などを計算
-    T = sum([-np.log(prd(X[i], A, B, K)) for i in range(n)]) / n
-    G = sum([-np.log(prd(X[i], A, B, K)) for i in range(n, 2 * n)]) / n
+    # 汎化損失などを計算
+    T = np.mean([-np.log(prd(X[i], A, B, K)) for i in range(n)])
+    G = np.mean([-np.log(prd(X[i], A, B, K)) for i in range(n, 2 * n)])
     AIC = T + 2 / n
-    WAIC = T + sum([
-        sum([np.log(p(X[i], A[k], B[k]))**2 for k in range(K)]) / K -
-        (sum([np.log(p(X[i], A[k], B[k])) for k in range(K)]) / K)**2
+    WAIC = T + np.mean([
+        np.mean([np.log(p(X[i], A[k], B[k]))**2 for k in range(K)]) -
+        (np.mean([np.log(p(X[i], A[k], B[k])) for k in range(K)]))**2
         for i in range(n)
-    ]) / n
-    ISCV = sum([
-        np.log(sum([1 / p(X[i], A[k], B[k]) for k in range(K)]) / K)
+    ])
+    ISCV = np.mean([
+        np.log(np.mean([1 / p(X[i], A[k], B[k]) for k in range(K)]))
         for i in range(n)
-    ]) / n
+    ])
     return G, AIC, WAIC, ISCV
 
 
