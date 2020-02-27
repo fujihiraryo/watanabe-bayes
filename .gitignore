@@ -2,6 +2,7 @@
 .cache/*
 .config/*
 .ipynb_checkpoints/*
+*/.ipynb_checkpoints/*
 .ipython/*
 .jupyter/*
 .local/*
@@ -11,5 +12,4 @@
 *.fls
 *.synctex.gz
 *.log
-
 .DS_Store
