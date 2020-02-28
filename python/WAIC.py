@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from datetime import datetime as dt
 
 
 def p_j(x, y, a, b):
@@ -69,7 +70,7 @@ def main(n=100, a=0.5, b=2, s=1, K=1000, burn=200):
     return G, AIC, WAIC, ISCV
 
 
-def plot(a=0.5, b=2, s=1, N=100, K=1000, burn=200, ex=100, name='test'):
+def plot(a=0.5, b=2, s=1, N=100, K=100, burn=20, ex=100, name='test'):
     G, AIC, WAIC, ISCV = [], [], [], []
     for _ in range(ex):
         g, aic, waic, iscv = main(a=a, b=b, s=s, n=N, K=K, burn=burn)
@@ -82,7 +83,8 @@ def plot(a=0.5, b=2, s=1, N=100, K=1000, burn=200, ex=100, name='test'):
         plt.title('N(0, {})'.format(s))
     else:
         plt.title('{}N(0, {}) + {}N({}, {})'.format(1 - a, s, a, b, s))
-    plt.savefig('image/WAIC/{}.png'.format(name))
+    now = dt.now().strftime("%Y%m%d%H%M%S")
+    plt.savefig('image/WAIC/{}_{}.png'.format(name, now))
     plt.cla()
 
 
