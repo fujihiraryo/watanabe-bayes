@@ -1,5 +1,4 @@
-# 渡辺澄夫「ベイズ統計の理論と方法」の実装
-ブラウザでの実行は[こちら](https://mybinder.org/v2/gh/fujihiraryo/watanabe-bayes/develop)をクリック
+# 工事中
 
 ## ch01
 - p.18【例2】事後分布の例
