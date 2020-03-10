@@ -2,9 +2,9 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fujihiraryo/watanabe-bayes/master
 )
+[![nbviewer](https://user-images.githubusercontent.com/2791223/29387450-e5654c72-8294-11e7-95e4-090419520edb.png)](https://nbviewer.jupyter.org/github/fujihiraryo/watanabe-bayes/tree/master/)
 
 ## ch01 
-[![nbviewer](https://user-images.githubusercontent.com/2791223/29387450-e5654c72-8294-11e7-95e4-090419520edb.png)](https://nbviewer.jupyter.org/github/fujihiraryo/watanabe-bayes/blob/master/ch01.ipynb)
 - p.18【例2】事後分布の例
 
 ## ch04
