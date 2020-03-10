@@ -1,7 +1,6 @@
 # 工事中
 
-[![Binder](https://mybinder.org/badge_logo.svg)]
-(https://mybinder.org/v2/gh/fujihiraryo/watanabe-bayes/develop)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fujihiraryo/watanabe-bayes/develop)
 
 ## ch01
 - p.18【例2】事後分布の例
