@@ -6,3 +6,4 @@
 .jupyter/*
 .local/*
 .DS_Store
+test.py
